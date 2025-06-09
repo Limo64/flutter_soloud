@@ -11,13 +11,17 @@ class SoLoudController {
 
   SoLoudController._() {
     /// Initialize lib
-    nativeLib = Platform.isLinux
-        ? ffi.DynamicLibrary.open('libflutter_soloud_plugin.so')
-        : (Platform.isAndroid
-            ? ffi.DynamicLibrary.open('libflutter_soloud_plugin.so')
-            : (Platform.isWindows
-                ? ffi.DynamicLibrary.open('flutter_soloud_plugin.dll')
-                : ffi.DynamicLibrary.process()));
+    nativeLib = 
+    // Platform.isLinux
+    //     ? ffi.DynamicLibrary.open('libflutter_soloud_plugin.so')
+    //     : (Platform.isAndroid
+    //         ? ffi.DynamicLibrary.open('libflutter_soloud_plugin.so')
+    //         : (Platform.isWindows
+    //             ? ffi.DynamicLibrary.open('flutter_soloud_plugin.dll')
+    //             : 
+                ffi.DynamicLibrary.process()
+                // ))
+                ;
     soLoudFFI = FlutterSoLoudFfi.fromLookup(nativeLib.lookup);
   }
 
